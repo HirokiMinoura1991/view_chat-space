@@ -1,11 +1,12 @@
-  .flashbox__alert{
-    background-color:#38AEF0;
-    color:white;
-    width: 100%;
-    text-align: center;
-    height: 30px;
-    position: fixed;
-  }
+.wrap{
+  // .flashbox__alert{
+  //   background-color:#38AEF0;
+  //   color:white;
+  //   width: 100%;
+  //   text-align: center;
+  //   height: 30px;
+  //   position: fixed;
+  // }
   .main{
     width: calc(100vw - 300px);
     float: right;
@@ -116,6 +117,7 @@
       } 
     }
   }
+}
       
     
 

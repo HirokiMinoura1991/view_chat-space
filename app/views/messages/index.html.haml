@@ -1,35 +1,38 @@
-.flashbox
-  .flashbox__alert
-    グループを作成しました。
-.main      
-  .main__header
-    .main__header__leftbox
-      .main__header__leftbox__currentgroup
-        %h2 RedDevils
-      .main__header__leftbox__list
-        %h3 Member:Rooney
+.wrap
 
-    = link_to "#" do
-      .main__header__rightbox 
-        Edit
+  = render "sidebar"
 
-  .messages
-    .messages__message
-      .messages__message__upper-info
-        .messages__message__upper-info__talker
-          %p Rooney
-        .messages__message__upper-info__date
-          %p 2019/11/18(Mon) 11:18:11
-      .messages__message__text
-        %p You'll never walk alone
+  .main      
+    .main__header
+      .main__header__leftbox
+        .main__header__leftbox__currentgroup
+          %h2 RedDevils
+        .main__header__leftbox__list
+          %h3 Member:Rooney
+
+      = link_to "#" do
+        .main__header__rightbox 
+          Edit
+
+    .messages
+      .messages__message
+        .messages__message__upper-info
+          .messages__message__upper-info__talker
+            %p Rooney
+          .messages__message__upper-info__date
+            %p 2019/11/18(Mon) 11:18:11
+        .messages__message__text
+          %p You'll never walk alone
+    
+    .footer
+      %form{action: "/", method:  "post", enctype: "multipart/form-data" }
+        .inputbox
+          %input{name: "title", placeholder: "type a message", type: "text"}
+          = link_to "#" do
+            %i.fa.fa-image
+        %input{type: "submit", name: "commit",value: "Send", class: "submit-btn"}
   
-  .footer
-    %form{:action => "/", :method => "post", :enctype => "multipart/form-data" }
-      .inputbox
-        %input{:name => "title", :placeholder => "type a message",:type => "text"}
-        = link_to "#" do
-          %i.fa.fa-image
-      %input{:type => "submit", :name => "commit", :value => "Send", :class => "submit-btn"}
+  
         
 
 
