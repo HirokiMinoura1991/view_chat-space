@@ -1,0 +1,58 @@
+.sidebar
+  .sidebar_top
+    %h3.header__name
+      = current_user.name
+    %ul.iconcontent
+      %li.newgroup
+        = link_to new_group_path do
+          = fa_icon 'pencil-square-o', class: 'icon'
+      %li.edituser
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            = group.show_last_message
+
+
+
+
+
+
+
+-# .sidebar
+-#   .sidebar__top
+-#     %h3.header__name
+-#       = current_user.name
+-#     .sidebar__top__namecontent
+-#       %ul.iconcontent
+-#         %li.newgroup 
+-#           = link_to new_group_path do
+-#             %i.fa.fa-edit
+-#         %li.edituser
+-#           = link_to edit_user_path(current_user) do
+-#             = fa_icon 'cog', class: 'icon'          
+-#   .sidebar__bottom
+-#     .sidebar__bottom__groups
+-#       - current_user.groups.each do |group|
+-#         .sidebar__bottom__groups__group
+-#           = link_to '#' do
+-#             .sidebar__bottom__groups__group__groupname
+-#               = group.name
+-#             .sidebar__bottom__groups__group__latestmessage
+-#               メッセージはまだありません。
+
+
+
+
+    -# .sidebar__bottom__groups
+    -#   = link_to "#" do
+    -#     .sidebar__bottom__groups__group
+    -#       .sidebar__bottom__groups__group__groupname
+    -#         %p RedDevils
+    -#       .sidebar__bottom__groups__group__latestmessage
+    -#         %p You'll never walk alone

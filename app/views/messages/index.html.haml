@@ -1,38 +1,46 @@
 .wrap
-
-  = render "sidebar"
-
+  = render "devise/shared/sidebar"
   .main      
     .main__header
       .main__header__leftbox
         .main__header__leftbox__currentgroup
-          %h2 RedDevils
+          %h1 RedDevils
         .main__header__leftbox__list
           %h3 Member:Rooney
 
-      = link_to "#" do
+      = link_to edit_group_path(@group) do
         .main__header__rightbox 
           Edit
-
     .messages
-      .messages__message
-        .messages__message__upper-info
-          .messages__message__upper-info__talker
-            %p Rooney
-          .messages__message__upper-info__date
-            %p 2019/11/18(Mon) 11:18:11
-        .messages__message__text
-          %p You'll never walk alone
-    
-    .footer
-      %form{action: "/", method:  "post", enctype: "multipart/form-data" }
-        .inputbox
-          %input{name: "title", placeholder: "type a message", type: "text"}
-          = link_to "#" do
-            %i.fa.fa-image
-        %input{type: "submit", name: "commit",value: "Send", class: "submit-btn"}
+      = render @messages
+      -# .messages__message
+      -#   .messages__message__upper-info
+      -#     .messages__message__upper-info__talker
+      -#       %p Rooney
+      -#     .messages__message__upper-info__date
+      -#       %p 2019/11/18(Mon) 11:18:11
+      -#   .messages__message__text
+      -#     %p You'll never walk alone
+      
+      .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
   
   
+
+    -# .footer
+    -#     %form{action: "/", method:  "post", enctype: "multipart/form-data" }
+    -#       .inputbox
+    -#         %input{name: "title", placeholder: "type a message", type: "text"}
+    -#         = link_to "#" do
+    -#           %i.fa.fa-image
+    -#       %input{type: "submit", name: "commit",value: "Send", class: "submit-btn"}
+
         
 
 

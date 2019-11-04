@@ -63,14 +63,14 @@
       }
     }
 
-    .footer{
+    .form{
       height: 90px;
       padding: 20px 40px;
       background-color: #ddd;
       box-sizing: border-box;
-      form{
+      .form__message{
         display:flex;
-        .inputbox{
+        .form_mask{
           position: relative;
           width: 100%;
           .title{
@@ -84,7 +84,7 @@
             border-style: none;
             
           }
-          a{
+          .icon{
             font-size: 1.3rem;
             position: absolute;
             top: 10px;
@@ -93,7 +93,7 @@
             color: black;
           }
         }
-        input{
+        .f.submit{
           width: 100px;
           height: 50px;
           padding: 0 30px;
@@ -103,7 +103,7 @@
           box-sizing: border-box;
           float:right;
         }
-        .submit-btn{
+        .form__submit{
           background-color: #38aef0;
         }
       } 
