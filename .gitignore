@@ -21,9 +21,7 @@
 /yarn-error.log
 
 /public/assets
-/public/uploads/404.html
-/public/uploads/422.html
-/public/uploads/500.html
+/public/uploads
 
 .byebug_history
 
