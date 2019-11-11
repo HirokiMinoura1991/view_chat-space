@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module ViewChatSpace
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
 
     # Settings in config/environments/* take precedence over those specified here.
