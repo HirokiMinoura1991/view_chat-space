@@ -1,22 +1,22 @@
 $(function(){ 
   var buildMessageHTML = function(message) {
     var image = (message.content && message.image.url)?`<img src="` + message.image.url + `" class="lower-message__image" >`  : ""
-      var html = `<div class="message" data-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="upper-message__date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
-            message.content +
-          `</p>` +
-        `</div>` +
-          image  +
-      `</div>`
+      var html = `<div class="message" data-id= message.id>
+        <div class="upper-message">
+          <div class="upper-message__user-name">
+            message.user_name 
+          </div> 
+          <div class="upper-message__date"> 
+            message.created_at 
+          </div>
+        </div> 
+        <div class="lower-message">
+          <p class="lower-message__content">
+            message.content 
+          </p> 
+        </div>
+          image 
+      </div>`
     return html;
   };
 
@@ -45,4 +45,5 @@ $(function(){
     })
   })
   setInterval(reloadMessages, 5000);
- }});
+ };
+});
