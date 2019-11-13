@@ -66,5 +66,5 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     })
   }
-  setInterval(reloadMessages, 5000);
+  // setInterval(reloadMessages, 5000);
 });
