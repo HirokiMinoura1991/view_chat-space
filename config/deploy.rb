@@ -30,8 +30,6 @@ set :default_env,{
   path:"/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: Rails.application.credentials.aws_access_key_id,
   AWS_SECRET_ACCESS_KEY: Rails.application.credentials.aws_secret_access_key,
- 
-
 }
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
@@ -40,4 +38,15 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
