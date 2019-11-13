@@ -32,6 +32,7 @@ set :default_env,{
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
 # デプロイ処理が終わった後、Unicornを再起動するための記述
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
