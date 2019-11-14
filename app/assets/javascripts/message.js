@@ -47,6 +47,7 @@ $(function(){
   }
 
   var reloadMessages = function() {
+    // if文で条件分岐してyesの時はdoneNoの時は〜のようにする。
     var last_message_id = $('.message').last().data('id');
     $.ajax({
       url: 'api/messages',
@@ -58,13 +59,13 @@ $(function(){
       var insertHTML = '';
       messages.forEach(function(message){
       insertHTML= buildMessageHTML(message)
-          $('.messages').append(insertHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
+          $('.messages').append(insertHTML);  
       })
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast'); 
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
     })
   }
-  // setInterval(reloadMessages, 5000);
+    setInterval(reloadMessages, 5000);
 });
