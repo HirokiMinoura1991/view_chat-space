@@ -4,24 +4,15 @@
     .main__header
       .main__header__leftbox
         .main__header__leftbox__currentgroup
-          %h1 RedDevils
+          = @group.name
         .main__header__leftbox__list
-          %h3 Member:Rooney
+          = current_user.name
 
       = link_to edit_group_path(@group) do
         .main__header__rightbox 
           Edit
     .messages
       = render @messages
-
-    -# .form
-    -#   %form
-    -#     %input.form__message
-    -#     .form__mask
-    -#       %label.form__mask__image
-    -#         = icon('fa','image',class: 'icon')
-    -#         %input.hidden{type: 'file'}
-    -#     %input.form__submit{type: 'submit', value: 'Send'}
   
     = form_for [@group, @message],html: {class:"form"} do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
