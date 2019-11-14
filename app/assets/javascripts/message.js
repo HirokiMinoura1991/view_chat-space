@@ -39,7 +39,7 @@ $(function(){
         <div class="lower-message">
           <p class="lower-message__content">
             ${message.content} 
-          </p> 
+          </p>
         </div>
           ${image}
       </div>`
@@ -47,8 +47,9 @@ $(function(){
   }
 
   var reloadMessages = function() {
-    // if文で条件分岐してyesの時はdoneNoの時は〜のようにする。
-    var last_message_id = $('.message').last().data('id');
+    // if 今のページのURLを取得.match  groups/number/messages
+    if(location.pathname.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message').last().data('id');
     $.ajax({
       url: 'api/messages',
       type: 'GET',
@@ -62,10 +63,11 @@ $(function(){
           $('.messages').append(insertHTML);  
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast'); 
       })
+      .fail(function() {
+        alert("メッセージ送信に失敗しました");
+      })
     })
-    .fail(function() {
-      alert("メッセージ送信に失敗しました");
-    })
-  }
+    }else{
+    }}
     setInterval(reloadMessages, 5000);
 });
