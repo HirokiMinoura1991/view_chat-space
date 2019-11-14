@@ -14,7 +14,15 @@
     .messages
       = render @messages
 
-
+    -# .form
+    -#   %form
+    -#     %input.form__message
+    -#     .form__mask
+    -#       %label.form__mask__image
+    -#         = icon('fa','image',class: 'icon')
+    -#         %input.hidden{type: 'file'}
+    -#     %input.form__submit{type: 'submit', value: 'Send'}
+  
     = form_for [@group, @message],html: {class:"form"} do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .form__mask
@@ -22,11 +30,6 @@
           = fa_icon 'picture-o', class: 'icon'
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
-
-
-
-
-
         
 
           
