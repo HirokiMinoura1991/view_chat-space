@@ -26,7 +26,7 @@ $(function(){
        });
      });
   var buildMessageHTML = function(message) {
-    var image = (message.content && message.image.url)?`<img src= ${message.image.url} class="lower-message__image" >`  : ""
+    var image = (message.content,message.image.url)?`<img src= ${message.image.url} class="lower-message__image" >`  : ""
       var html = `<div class="message" data-id= ${message.id}>
         <div class="upper-message">
           <div class="upper-message__user-name">

@@ -6,7 +6,8 @@
         .main__header__leftbox__currentgroup
           = @group.name
         .main__header__leftbox__list
-          = current_user.name
+          - @group.users.each do |user|
+            = user.name
 
       = link_to edit_group_path(@group) do
         .main__header__rightbox 

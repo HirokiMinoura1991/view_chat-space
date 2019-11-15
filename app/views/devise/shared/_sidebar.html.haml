@@ -5,6 +5,7 @@
     %ul.iconcontent
       %li.newgroup
         = link_to new_group_path do
+          -# .{"data-turbolinks": "false"}
           = fa_icon 'pencil-square-o', class: 'icon'
       %li.edituser
         = link_to edit_user_path(current_user) do

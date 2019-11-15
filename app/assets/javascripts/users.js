@@ -1,5 +1,6 @@
-$(function() {
+document.addEventListener("turbolinks:load", function(){
   function addUser(user) {
+    
     let html = `
       <div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${user.name}</p>
@@ -54,7 +55,7 @@ $(function() {
         alert("通信エラーです。ユーザーが表示できません。");
       });
   });
-  $(document).on("click", ".chat-group-user__btn--add", function() {
+  $("body").on("click", ".chat-group-user__btn--add", function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)
